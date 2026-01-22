@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chess Board</title>
+    <meta name="description" content="Create chess board with dom">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #parent {
+            display: grid;
+            grid-template-columns: repeat(8, 40px);
+            border: 2px solid black;
+            width: fit-content;
+        }
+        .black {
+            height: 40px;
+            width: 40px;
+            background-color: black;
+        }
+        .white {
+            height: 40px;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent"></div>
+
+    <script>
+        const parent = document.getElementById("parent")
+
+        for (j = 1; j <= 8; j++) {
+            for (i = 1; i <= 8; i++) {
+                const div = document.createElement("div")
+                if(j % 2 == 0) {
+                    if(i % 2 == 0) {
+                        div.classList.add("white")
+                    }else {
+                        div.classList.add("black")
+                    }
+                    parent.append(div)
+                } else{
+                    if(i % 2 == 0) {
+                        div.classList.add("black")
+                    } else {
+                        div.classList.add("white")
+                    }
+                    parent.append(div)
+                }
+            }
+        }
+    </script>
+</body>
+</html>
